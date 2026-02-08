@@ -38,9 +38,6 @@ std::string translate(const std::string& line, bool &inMain, bool &insideClass) 
     std::string out = line;
     std::string t = trim(line);
 
-    // Eliminar llaves sueltas de clases C#
-    if (!inMain && (t == "{" || t == "}")) return "";
-
     // using → include
     static std::regex usingRx(R"(using\s+([A-Za-z0-9_\.]+)\s*;)");
     std::smatch match;
